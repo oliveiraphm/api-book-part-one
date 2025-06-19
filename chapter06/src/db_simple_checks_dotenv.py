@@ -1,7 +1,13 @@
 import sqlite3
+import os 
+from dotenv import load_dotenv
 
+load_dotenv()
+
+SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL")
+print(SQLALCHEMY_DATABASE_URL)
 # Connect to your SQLite database
-conn = sqlite3.connect('./data/fantasy_data.db')
+conn = sqlite3.connect(SQLALCHEMY_DATABASE_URL)
 cursor = conn.cursor()
 
 # Execute your SELECT statement
